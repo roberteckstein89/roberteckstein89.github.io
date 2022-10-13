@@ -147,6 +147,11 @@ async function uploadFile() {
         body: formData
     });
     var json = await res.json();
+    var fileId = json['id'];
+    var text = json['text'];
+    var totalSeconds = json['total_seconds'];
+    var totalPrice = json['total_price'];
+    window.localStorage.setItem('fileId', fileId);
     $("#transcription").text(json.text);
     $("#transcript-download").click(function() {
         const text = $("#transcription").text();
