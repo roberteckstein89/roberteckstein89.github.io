@@ -62,6 +62,7 @@ async function uploadFile() {
     var fileId = json['id'];
     var text = json['text'];
     var totalSeconds = json['total_seconds'];
+    var totalMinutes = json['total_minutes'];
     var totalPrice = json['total_price'];
     window.localStorage.setItem('fileId', fileId);
 
