@@ -1,5 +1,10 @@
 $(document).ready(function() {
    hide_extra();
+
+   $('#audioFile').change(function() {
+    hide_extra();
+    $('#upload-button').show();
+   });
 });
 
 function hide_extra() {
@@ -9,6 +14,7 @@ function hide_extra() {
    $('#upload-spinner').hide();
    $('#invalid-email').hide();
    $('#invalid-gdpr').hide();
+   $('#upload-spinner').hide();
 }
 
 
