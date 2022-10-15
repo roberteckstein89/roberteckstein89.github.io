@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 function hide_extra() {
    $('#transcript-short').hide();
-   //$('#full-transcript-form').hide();
+   $('#full-transcript-form').hide();  // comment this
    $('#transcript-full').hide();
    $('#upload-spinner').hide();
    $('#invalid-email').hide();
