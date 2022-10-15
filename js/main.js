@@ -94,6 +94,11 @@ async function checkout() {
     const email = $("#email").val();
     const checked = $("#GDPRCheckbox").prop('checked');
     const validEmail = validateEmail(email);
+    const id = window.localStorage.getItem('fileId');
+    if (id == null || id === undefined || id == 'undefined') {
+        alert('Nastala chyba, načtěte stránku znovu.');
+        return;
+    }
     if (!validEmail) {
         $('#invalid-email').show();
         return;
@@ -102,32 +107,26 @@ async function checkout() {
         $('#invalid-gdpr').show();
         return;
     }
+
     
-    /*let formData = new FormData();
-    //const lang = $("#languageSelect").find(":selected").val();
-    //console.log(lang);
-    formData.append("file", audioFile.files[0]);
-    //formData.append("language", lang);
+    let formData = new FormData();
+    formData.append("id", id);
+    formData.append("email", email);
 
     let headers = new Headers();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
 
-    //headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
     headers.append('Origin','http://localhost:8880');
-    //headers.append('Access-Control-Allow-Origin', '*');
 
-    $('#upload-spinner').show();
-    $('#upload-button').hide();
+    $('#finish-spinner').show();
+    $('#transcript-full-button').hide();
 
-    var res = await fetch('http://localhost:8880/uploadfile', {
-        //mode: 'no-cors',
-        //credentials: 'include',
+    var res = await fetch('http://localhost:8880/checkout', {
         method: 'POST',
-        //headers: headers,
         body: formData
     });
-    $('#upload-spinner').hide();*/
+    $('#finish-spinner').hide();
 
 }
 
