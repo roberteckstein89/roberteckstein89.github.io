@@ -134,6 +134,15 @@ async function checkout() {
         body: formData
     });
     $('#finish-spinner').hide();
+    var json = await res.json();
+    const success = json['success'];
+    if (success) {
+        redirect_url = json['redirect_url'];
+        window.location.replace(redirect_url);
+    }
+    else {
+        alert('Chyba: ' + json['error']);
+    }
 
 }
 
