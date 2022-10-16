@@ -66,7 +66,7 @@ async function uploadFile() {
     var totalPrice = json['total_price'];
     window.localStorage.setItem('fileId', fileId);
 
-    $("#transcription").text(json.text);
+    /*$("#transcription").text(json.text);
     $("#transcript-download").click(function() {
         const text = $("#transcription").text();
         download('prepis.txt', text);
@@ -81,8 +81,8 @@ async function uploadFile() {
     if (totalSeconds < 30) {
        $('#full-transcript-form').hide();
     }
-    else {
-       $('#transcript-full-button').text('Dokončit přepis celého textu [' + totalPrice + ' Kč]');
+    else */{
+       $('#transcript-full-button').text('Spustit přepis audio nahrávky [' + totalPrice + ' Kč]');
        $('#full-transcript-form').show();
     }
 }
