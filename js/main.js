@@ -7,6 +7,10 @@ $(document).ready(function() {
    });
 });
 
+//const SERVER_API = 'http://localhost:8880';  // localhost
+//const SERVER_API = 'http://localhost:8000';  // Docker
+const SERVER_API = 'http://35.198.147.137:8080';  // GCloud
+
 function hide_extra() {
    $('#transcript-short').hide();
    $('#full-transcript-form').hide();  // comment this
@@ -43,13 +47,13 @@ async function uploadFile() {
     headers.append('Accept', 'application/json');
 
     //headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
-    headers.append('Origin','http://localhost:8880');
+    headers.append('Origin', SERVER_API);
     //headers.append('Access-Control-Allow-Origin', '*');
 
     $('#upload-spinner').show();
     $('#upload-button').hide();
 
-    var res = await fetch('http://localhost:8880/uploadfile', {
+    var res = await fetch(SERVER_API + '/uploadfile', {
         //mode: 'no-cors',
         //credentials: 'include',
         method: 'POST',
@@ -124,12 +128,12 @@ async function checkout() {
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
 
-    headers.append('Origin','http://localhost:8880');
+    headers.append('Origin', SERVER_API);
 
     $('#finish-spinner').show();
     $('#transcript-full-button').hide();
 
-    var res = await fetch('http://localhost:8880/checkout', {
+    var res = await fetch(SERVER_API + '/checkout', {
         method: 'POST',
         body: formData
     });
