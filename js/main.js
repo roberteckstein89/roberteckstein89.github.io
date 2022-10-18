@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 //const SERVER_API = 'http://localhost:8880';  // localhost
 //const SERVER_API = 'http://localhost:8000';  // Docker
-const SERVER_API = 'http://35.198.147.137:8080';  // GCloud
+const SERVER_API = 'https://35.198.147.137:8080';  // GCloud
 
 function hide_extra() {
    $('#transcript-short').hide();
