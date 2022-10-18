@@ -52,7 +52,80 @@
 </div>
 
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    Stránka se připravuje.
+    <div>
+        <!--<form action="http://localhost:8880/files/" method="post">-->
+        <form>
+            <!--
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            -->
+            <!--
+            <div class="form-group">
+                <label for="languageSelect">Jazyk nahrávky</label>
+                <select class="form-control" id="languageSelect">
+                    <option value="cs">Čeština</option>
+                    <option value="en">Angličtina</option>
+                    <option value="de">Němčina</option>
+                    <option value="fr">Francouzština</option>
+                    <option value="es">Španělština</option>
+                </select>
+            </div>
+            -->
+            <div class="form-group" id="choose-audio">
+                <label for="audioFile">Zvolte audio nahrávku (v libovolném jazyce)</label>
+                <input type="file" class="form-control-file center" id="audioFile" name="audioFile">
+            </div>
+            <button id="upload-button" onclick="uploadFile()" class="btn btn-primary">Spustit přepis na text</button>
+            <div id="upload-spinner" class="spinner-border text-primary" role="status">
+                <span class="sr-only">Prosím čekejte, nahrávka se zpracovává...</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="col-md-5 p-lg-5 mx-auto my-5" id="transcript-short">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Přepis textu (ukázka prvních 30s)</h5>
+            <div class="card-text h-25 overflow-auto" id="transcription">Lorem Ipsum is simply dummy text of the
+                printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+                the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+            </div>
+            <a href="#" class="card-link" id="transcript-download">Stáhnout</a>
+            <a href="#" class="card-link" id="transcript-copy">Zkopírovat</a>
+        </div>
+    </div>
+</div>
+
+<div class="form-group" id="full-transcript-form">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div>
+                <label for="email">Zadejte Vaši emailovou adresu, kam se přepis zašle:</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                       placeholder="Zadejte e-mail">
+                <small id="emailHelp" class="form-text text-muted">Váš e-mail nebudeme s nikým dalším sdílet.</small>
+                <div class="form-check">
+                    <input id="GDPRCheckbox" type="checkbox" class="form-check-input">
+                    <label class="form-check-label" for="GDPRCheckbox">Souhlasím se zpracováním osobních údajů pro účely
+                        GDPR a zaslání finálního přepisu na zadaný email.</label>
+                </div>
+                <div class="col-md-5 p-lg-5 mx-auto my-5" id="transcript-full-button-div">
+                    <button onclick="checkout()" class="btn btn-primary" id="transcript-full-button">Dokončit přepis celého textu [30 Kč]
+                    </button>
+                </div>
+                <div id="invalid-email" class="alert alert-danger" role="alert">
+                    Zadejte správně e-mail.
+                </div>
+                <div id="invalid-gdpr" class="alert alert-danger" role="alert">
+                    Pro pokračování je potřeba souhlasit s GDPR podmínkami.
+                </div>
+
+        </div>
+    </div>
 </div>
 
     <!-- Optional JavaScript -->

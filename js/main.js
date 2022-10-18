@@ -103,7 +103,7 @@ async function checkout() {
         return;
     }
     
-    let formData = new FormData();
+    /*let formData = new FormData();
     //const lang = $("#languageSelect").find(":selected").val();
     //console.log(lang);
     formData.append("file", audioFile.files[0]);
@@ -127,7 +127,7 @@ async function checkout() {
         //headers: headers,
         body: formData
     });
-    $('#upload-spinner').hide();
+    $('#upload-spinner').hide();*/
 
 }
 
