@@ -81,3 +81,9 @@
 .overflow-hidden { overflow: hidden; }
 
 /*.form-control-file::after { content: "Charger";}*/
+
+.myfile { 
+  margin: 0 auto !important; /* I have added the !important attribute just for debugging, you can remove it. */ 
+  padding-bottom: 1em;
+  width: 200px;
+}

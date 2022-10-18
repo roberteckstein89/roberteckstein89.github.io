@@ -29,13 +29,15 @@
                 <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
             </svg>
         </a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Přepis řeči</a>
+        <!--
         <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+        -->
     </div>
 </nav>
 
@@ -54,7 +56,6 @@
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
     <div>
         <!--<form action="http://localhost:8880/files/" method="post">-->
-        <form>
             <!--
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
@@ -75,13 +76,12 @@
             -->
             <div class="form-group" id="choose-audio">
                 <label for="audioFile">Zvolte audio nahrávku (v libovolném jazyce)</label>
-                <input type="file" class="form-control-file center" id="audioFile" name="audioFile">
+                <input type="file" class="form-control-file center myfile" id="audioFile" name="audioFile">
             </div>
-            <button id="upload-button" onclick="uploadFile()" class="btn btn-primary">Spustit přepis na text</button>
+            <button id="upload-button" onclick="uploadFile()" class="btn btn-primary">Pokračovat</button>
             <div id="upload-spinner" class="spinner-border text-primary" role="status">
-                <span class="sr-only">Prosím čekejte, nahrávka se zpracovává...</span>
+                <span class="sr-only">Prosím čekejte, nahrávka se zpracovává. Může to trvat i několik minut.</span>
             </div>
-        </form>
     </div>
 </div>
 
@@ -90,10 +90,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Přepis textu (ukázka prvních 30s)</h5>
-            <div class="card-text h-25 overflow-auto" id="transcription">Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
-                the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting,
+            <div class="card-text h-25 overflow-auto" id="transcription">
             </div>
             <a href="#" class="card-link" id="transcript-download">Stáhnout</a>
             <a href="#" class="card-link" id="transcript-copy">Zkopírovat</a>
@@ -102,6 +99,12 @@
 </div>
 
 <div class="form-group" id="full-transcript-form">
+    <div class="col-md-12" id="transcript-short">
+        <p class="h2 text-center">Potřebujete přepsat celou nahrávku?</p>
+        <p>Pro plný přepis vyplňte údaje níže a my Vám ji do pár minut automaticky zašleme přepsanou na e-mail, včetně titulků ve formátu <i>.srt</i></p>
+        <p class="info">(Poznámka: Délka doby přepisu však může být i o něco delší, v závislosti na délce nahrávky.)</p>
+        <p>Cena je 3 Kč za každou započatou minutu nahrávky. Nahrávky kratší než 10 minut se účtují jako 10-ti minutové.</p>
+    </div>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div>
                 <label for="email">Zadejte Vaši emailovou adresu, kam se přepis zašle:</label>
@@ -116,6 +119,9 @@
                 <div class="col-md-5 p-lg-5 mx-auto my-5" id="transcript-full-button-div">
                     <button onclick="checkout()" class="btn btn-primary" id="transcript-full-button">Dokončit přepis celého textu [30 Kč]
                     </button>
+                    <div id="finish-spinner" class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Prosím čekejte, nahrávka se zpracovává. Může to trvat i několik minut.</span>
+                    </div>
                 </div>
                 <div id="invalid-email" class="alert alert-danger" role="alert">
                     Zadejte správně e-mail.
