@@ -19,6 +19,7 @@ function hide_extra() {
    $('#invalid-email').hide();
    $('#invalid-gdpr').hide();
    $('#upload-spinner').hide();
+   $('#finish-spinner').hide();
 }
 
 
