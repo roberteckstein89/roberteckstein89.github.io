@@ -7,9 +7,9 @@ $(document).ready(function() {
    });
 });
 
-//const SERVER_API = 'http://localhost:8880';  // localhost
+const SERVER_API = 'http://localhost:8880';  // localhost
 //const SERVER_API = 'http://localhost:8000';  // Docker
-const SERVER_API = 'https://api.prepisreci.cz:8080';  // GCloud
+//const SERVER_API = 'https://api.prepisreci.cz:8080';  // GCloud
 
 function hide_extra() {
    $('#transcript-short').hide();
@@ -139,14 +139,14 @@ async function checkout() {
         body: formData
     });
     $('#finish-spinner').hide();
-    var json = await res.json();
-    const success = json['success'];
-    if (success) {
+    if (res.status == 200) {
+        var json = await res.json();
         redirect_url = json['redirect_url'];
         window.location.replace(redirect_url);
     }
     else {
-        alert('Chyba: ' + json['error']);
+        const text = await res.text();
+        alert('Chyba: ' + text);
     }
 
 }
