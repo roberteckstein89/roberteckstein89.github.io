@@ -7,9 +7,23 @@ $(document).ready(function() {
    });
 });
 
-//const SERVER_API = 'http://localhost:8880';  // localhost
-//const SERVER_API = 'http://localhost:8000';  // Docker
-const SERVER_API = 'https://api.prepisreci.cz:8080';  // GCloud
+//const IS_PRODUCTION = true;
+const IS_PRODUCTION = false;
+
+let SERVER_API;
+if (!IS_PRODUCTION) {
+    SERVER_API = 'http://localhost:8880';  // localhost
+    //SERVER_API = 'http://localhost:8000';  // Docker
+}
+else {
+    SERVER_API = 'https://api.prepisreci.cz:8080';  // GCloud
+    
+    // Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-8E6JWK6B8L');}
 
 function hide_extra() {
    $('#transcript-short').hide();
