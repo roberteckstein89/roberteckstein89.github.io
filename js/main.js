@@ -7,8 +7,8 @@ $(document).ready(function() {
    });
 });
 
-//const IS_PRODUCTION = true;
-const IS_PRODUCTION = false;
+const IS_PRODUCTION = true;
+//const IS_PRODUCTION = false;
 
 let SERVER_API;
 if (!IS_PRODUCTION) {
